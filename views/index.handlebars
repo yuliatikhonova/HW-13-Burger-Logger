@@ -1,33 +1,47 @@
-<h1>Eat Da Burger!</h1>
+<h1 style="font-size: 70px;text-align: center;">Eat Da Burger!</h1>
 
-<h2>Time to Eat that Burger</h2>
+<div style="text-align: center;">
+    <img src="assets/img/Screen Shot 2020-07-01 at 10.04.15 PM.png" alt="Burger"
+        style="border-radius: 150px;width: 30%;text-align: center;padding: 30px;">
+</div>
 
-<ul>
-    {{#each burgers}}
-        {{#unless devoured}}
+<section class='container'>
+    <section class="card" style="width: 350px;float:left;background-color:#FF8C00;padding: 10px" id="eat">
+        <h2 style="text-align: center;">Time to Eat that Burger</h2>
+
+        <ul>
+            {{#each burgers}}
+            {{#unless devoured}}
             {{> burgers/burger-block devoured=true}}
-        {{/unless}}
-    {{/each}}
-</ul>
+            {{/unless}}
+            {{/each}}
+        </ul>
+    </section>
 
-<h2>Burgers that You've Devoured</h2>
+    <section class="card" style="width: 410px;float:right;background-color: #FFC230; padding: 10px" id="devoured">
+        <h2 style="text-align: center;">Burgers that You've Devoured</h2>
 
-<ul>
-    {{#each burgers}}
-        {{#if devoured}}
+        <ul>
+            {{#each burgers}}
+            {{#if devoured}}
             {{> burgers/burger-block devoured=false}}
-        {{/if}}
-    {{/each}}
-</ul>
+            {{/if}}
+            {{/each}}
+        </ul>
+    </section>
 
-<h2>Add that Burger</h2>
+    <section class="card" style="width: 350px; background-color: orange; padding: 30px" id="adding">
+        <h2 style="text-align: center;">Add that Burger</h2>
 
-<form class="create-form">
+        <form class="create-form">
 
-    <div class="form-group">
-        <label for="burger">Burger Name:</label>
-        <input type="text" id="ca" name="name">
-    </div>
+            <div class="form-group">
+                <label for="burger">Burger Name:</label>
+                <input type="text" id="ca" name="name">
+            </div>
 
-    <button type="submit">Add Burger</button>
-</form>
+            <button type="submit">Add Burger</button>
+        </form>
+    </section>
+
+</section>

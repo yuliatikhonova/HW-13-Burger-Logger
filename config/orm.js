@@ -1,7 +1,8 @@
 const connection = require("../config/connection.js");
 
+
 const orm = {
-    selectAll: function (tableInput, cb) {//check to make sure it works
+    selectAll: function (tableInput, cb) {
         let queryString = "SELECT * FROM ??;";
         connection.query(queryString, [tableInput], function (err, result) {
             if (err) {
@@ -21,10 +22,9 @@ const orm = {
 
 
     updateOne: function (table, objColVals, condition, cb) {
-        let queryString = "UPDATE ?? SET ? WHERE ?";
-        console.log(queryString);
-
-        connection.query(queryString, [table, objToSql(objColVals), condition], function (err, result) {
+        let queryString = `UPDATE ${table} SET devoured = ${condition} WHERE id = ${objColVals}`;
+       
+        connection.query(queryString, function (err, result) {
             if (err) {
                 throw err;
             };
